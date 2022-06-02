@@ -5,7 +5,6 @@ class CreateCars < ActiveRecord::Migration[7.0]
       t.boolean :reserved
       t.text :description
       t.decimal :price
-      t.references :user, null: false, foreign_key: { to_table: :users }
       
       t.timestamps
     end
