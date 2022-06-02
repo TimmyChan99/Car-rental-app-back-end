@@ -1,19 +1,23 @@
 class UsersController < ApplicationController
-  def show
-    @user = fetch_user_from_token
+    def create
+        user = User.new(user_params)
+        
+        if user.save
+            token = issue_token(user)
+            render json: {user: UserSerializer.new(user), jwt: token}
 
-    render json: {
-      message: 'You have been successfully authenticated',
-      user:
-    }
-  end
+        else
+            if user.errors.messages
+                render json: {errors: user.errors.messages}
+            else
+                render json: {error: 'User could not be created.'}
+            end
+        end
+    end
 
-  private
+    private
 
-  def fetch_user_from_token
-    jwt_payload = JWT.decode(request.headers['Authorization'].split[1],
-                             Rails.application.credentials.devise[:jwt_secret_key]).first
-    user_id = jwt_payload['sub']
-    User.find(user_id.to_s)
-  end
+    def user_params
+        params.require(:user).permit(:name, :email, :password)
+    end
 end
