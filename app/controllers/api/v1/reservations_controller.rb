@@ -1,7 +1,10 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
-    user = User.find_by(email: params[:email])
-    reservations = Reservation.where(["user_id = :id", { id: user.id.to_s }])
+    header = request.headers['Authorization']
+    header = header.split(' ').last if header
+    decoded_token = JWT.decode header, nil, false
+    data = decoded_token[0]['user_id']
+    reservations = Reservation.where(user_id: data)
 
     render json: reservations
   end
