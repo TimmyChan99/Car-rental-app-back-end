@@ -2,11 +2,11 @@ class Api::V1::ReservationsController < ApplicationController
   def index
     header = request.headers['Authorization']
     header = header.split(' ').last if header
-    decoded_token = JWT.decode header, nil, false
+    decoded_token = JWT.decode header, jwt_key, false, { algorithm: 'HS256' }
     data = decoded_token[0]['user_id']
     reservations = Reservation.where(user_id: data)
 
-    render json: reservations
+    render json: reservations, status: 200
   end
 
   def create
