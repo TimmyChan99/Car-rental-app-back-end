@@ -1,6 +1,7 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
-    reservations = Reservation.find_by(params[:user_id])
+    user = User.find_by(email: params[:email])
+    reservations = Reservation.where(["user_id = :id", { id: user.id.to_s }])
 
     render json: reservations
   end
