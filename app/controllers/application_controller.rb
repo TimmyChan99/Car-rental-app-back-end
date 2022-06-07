@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
+
   def jwt_key
-    Rails.application.credentials.jwt_key
+    Rails.application.secrets.secret_key_base
   end
 
   def issue_token(user)
