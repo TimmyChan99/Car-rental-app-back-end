@@ -30,3 +30,5 @@
 /.env/
 
 /config/credentials/development.key
+config/database.yml
+config/database.yml
