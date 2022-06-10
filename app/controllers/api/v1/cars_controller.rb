@@ -8,7 +8,8 @@ class Api::V1::CarsController < ApplicationController
   end
 
   def show
-    render json: JSON.pretty_generate(@car.as_json)
+    @car = Car.find(params[:id])
+    render json: JSON.pretty_generate(@car.as_json, except: :pictures)
   end
 
   def create

@@ -26,8 +26,6 @@ default: &default
 development:
   <<: *default
   database: Car_rental_app_back_end_development
-  # username: postgres
-  # password: 1234
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
