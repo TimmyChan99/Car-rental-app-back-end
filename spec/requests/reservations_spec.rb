@@ -59,5 +59,13 @@ RSpec.describe "Reservations", type: :request do
   it 'Returns status code 200' do
     expect(response).to have_http_status(:success)
   end
+
+  it 'Return the city name' do
+    expect(json['city']).to eq 'Rabat'
+  end
+
+  it 'Get list of reservation: test the size' do
+    expect(json.size).to eq 7
+  end
 end
 end
