@@ -50,5 +50,9 @@ RSpec.describe "Cars", type: :request do
     it "Return the car description" do
       expect(json['description']).to eq 'blue'
     end
+
+    it "Return the car price" do
+      expect(json['price']).to eq "15.0"
+    end
   end
 end
