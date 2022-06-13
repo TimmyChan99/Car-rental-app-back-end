@@ -1,0 +1,168 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/cars":
+    get:
+      summary: list cars
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create car
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                car:
+                  properties:
+                    name:
+                      type: string
+                    capacity:
+                      type: number
+                    images:
+                      type: string
+                    price:
+                      type: string
+                    range:
+                      type: string
+                    speed:
+                      type: string
+                    url:
+                      type: string
+                    city:
+                      type: string
+              required:
+              - name
+              - capacity
+              - images
+              - speed
+              - range
+              - url
+              - city
+              - price
+              - reservation_expiry_date
+  "/cars/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show car
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update car
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update car
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete car
+      responses:
+        '200':
+          description: successful
+  "/user/{user_id}/reservations":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list reservations
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create reservation
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                date_of_reservation:
+                  type: string
+                  format: datetime
+                end_of_reservation:
+                  type: string
+                  format: datetime
+                cancelled:
+                  type: boolean
+                user_id:
+                  type: number
+                car_id:
+                  type: number
+              required:
+              - date_of_reservation
+              - end_of_reservation
+              - cancelled
+              - user_id
+              - car_id
+  "/user/{user_id}/reservations/{id}":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show reservation
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update reservation
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update reservation
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete reservation
+      responses:
+        '200':
+          description: successful
+  "/users":
+    get:
+      summary: list users
+      responses:
+        '200':
+          description: successful
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
