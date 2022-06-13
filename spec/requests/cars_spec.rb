@@ -27,7 +27,7 @@ RSpec.describe "Cars", type: :request do
   #     expect(car['description']).to eq 'black'
   #   end
 
-  #   it "returns status code 200" do
+  #   it "Returns status code 200" do
   #     get '/api/v1/cars'
   #     expect(response).to have_http_status(:success)
   #   end
@@ -35,9 +35,16 @@ RSpec.describe "Cars", type: :request do
 
   describe "GET /cars/:id" do
 
-    it "Get the car details: test the size" do
+    before do
       get '/api/v1/cars/1'
+    end
+
+    it "Get the car details: test the size" do
       expect(json.size).to eq 9
+    end
+
+    it "Return the car name" do
+      expect(json['name']).to eq 'BMW'
     end
   end
 end
