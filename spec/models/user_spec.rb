@@ -15,4 +15,8 @@ RSpec.describe User, type: :model do
     subject.email = nil
     expect(subject).to_not be_valid
   end
+
+  it 'Default role should be "subscriber"' do
+    expect(subject.role).to eq 'subscriber'
+  end
 end
