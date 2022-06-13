@@ -46,5 +46,9 @@ RSpec.describe "Cars", type: :request do
     it "Return the car name" do
       expect(json['name']).to eq 'BMW'
     end
+
+    it "Return the car description" do
+      expect(json['description']).to eq 'blue'
+    end
   end
 end
