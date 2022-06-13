@@ -61,7 +61,7 @@ RSpec.describe "Cars", type: :request do
   end
 
   describe "POST /cars" do
-    
+
     context "Not authorized user" do
     before do
       post '/api/v1/cars/', params: {
@@ -123,5 +123,23 @@ RSpec.describe "Cars", type: :request do
       expect(json['price']).to eq "15.0"
     end
   end
+  end
+
+  describe "DELETE /cars" do
+    context "Authorized user" do
+      before do
+        @user = User.create!(id: 2, name: 'user admin', email: 'user@mail.com', password: 'password', role: 'admin')
+        delete '/api/v1/cars/1',
+          headers: {
+            Authorization: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.NSblJ-t1wVTJ4U9dOYKrL3ZMe5ksjT_xFWZlxv1jIsM'
+          }
+       end
+  
+       it " Return success message" do
+        expect(json['message']).to eq 'Car has been successfully deleted'
+      end
+  
+      
+    end
   end
 end
