@@ -12,8 +12,13 @@ RSpec.describe Car, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it 'description should not be nil' do
+  it 'Description should not be nil' do
     subject.description = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'Price should not be nil' do
+    subject.price = nil
     expect(subject).to_not be_valid
   end
 end
