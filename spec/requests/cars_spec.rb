@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Cars", type: :request do
 
   before do
-    User.create!(id: 1, name: 'Rida', email: 'example@mail.com', password: 'password')
+   @user = User.create!(id: 1, name: 'Rida', email: 'example@mail.com', password: 'password')
     Car.create!(name: 'BMW', description: 'blue', price: 15, reserved: true, image: 'url', user_id: 1, id:1)
     Car.create!(name: 'Jeep', description: 'black', price: 20, reserved: false, image: 'url', user_id: 1, id: 2)
   end
@@ -60,7 +60,7 @@ RSpec.describe "Cars", type: :request do
   #   end
   # end
   describe "POST /cars" do
-
+    context "Not authorized user" do
     before do
       post '/api/v1/cars/', params: {
         car: {
@@ -75,15 +75,35 @@ RSpec.describe "Cars", type: :request do
         }
     end
 
-    it "Get the car details: test the size" do
-      p json
+    it " Creat a new car test (not authorized)" do
       expect(json.size).to eq 1
     end
 
-    it "Get the car details: test the size" do
+    it "Get the not authorized message" do
       expect(json['message']).to eq "You do not have access to this resourse"
     end
 
-  
+  end
+
+  context "Authorized user" do
+    before do
+      @user = User.create!(id: 2, name: 'user admin', email: 'user@mail.com', password: 'password', role: 'admin')
+      post '/api/v1/cars/', params: {
+        car: {
+          name: 'Renault', 
+          description: 'blue', 
+          price: 15, 
+          image: 'url',
+          user_id: 1
+        }},
+        headers: {
+          Authorization: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.NSblJ-t1wVTJ4U9dOYKrL3ZMe5ksjT_xFWZlxv1jIsM'
+        }
+     end
+
+     it " Creat a new car test (not authorized)" do
+      expect(json.size).to eq 9
+    end
+  end
   end
 end
