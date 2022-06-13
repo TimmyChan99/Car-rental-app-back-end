@@ -28,6 +28,11 @@ RSpec.describe "Reservations", type: :request do
       reservation = json[0]
       expect(reservation['city']).to eq @reservation.city
     end
+
+    it 'Return the duration' do
+      reservation = json[0]
+      expect(reservation['duration']).to eq @reservation.duration
+    end
   end
 
 end
