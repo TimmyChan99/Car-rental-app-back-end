@@ -90,6 +90,11 @@ end
   it 'Returns status code 422' do
     expect(response).to have_http_status(:unprocessable_entity)
   end
+
+  it 'Returns erroes message' do
+    expect(json['errors']).to eq 'Reservation not created'
+  end
+
 end
 end
 end
