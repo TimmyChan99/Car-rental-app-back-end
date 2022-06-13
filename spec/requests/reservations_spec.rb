@@ -8,7 +8,7 @@ RSpec.describe "Reservations", type: :request do
     @reservation = Reservation.create(city: 'LA', duration: 12, date_reserved: '12-12-2021', car_id: 1, user_id: 1)
   end
 
-  describe 'GET /reservation' do
+  describe 'GET /reservations' do
     before do
       get '/api/v1/reservations/', 
                              headers: {
@@ -39,5 +39,25 @@ RSpec.describe "Reservations", type: :request do
       expect(reservation['date_reserved']).to eq "2021-12-12"
     end
   end
+ describe 'POST /reservations' do
+  before :each do
+    post '/api/v1/reservations/', params: {
+      reservation: {
+        city: 'Rabat',
+        duration: 12,
+        price: 15,
+        date_reserved: '12-05-2022',
+        user_id: 1,
+        car_id: 1,
+      }
+    },
+                          headers: {
+                            Authorization: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.Ge9PnbYXkEn78GM4luhDfg9Y8NTsIkDv-zHhjSRBSPc'
+                          }
+  end
 
+  it 'Returns status code 200' do
+    expect(response).to have_http_status(:success)
+  end
+end
 end
