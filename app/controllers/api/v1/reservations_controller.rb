@@ -1,12 +1,24 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
+    response = []
     header = request.headers['Authorization']
     header = header.split.last if header
     decoded_token = JWT.decode header, jwt_key, false, { algorithm: 'HS256' }
     data = decoded_token[0]['user_id']
     reservations = Reservation.where(user_id: data)
 
-    render json: reservations, status: 200
+    reservations.each do |res|
+      response << {
+        id: res.id,
+        city: res.city,
+        duration: res.duration,
+        date_reserved: res.date_reserved,
+        user_id: res.user_id,
+        car: CarSerializer.new(Car.find(res.car_id))
+      }
+    end
+
+    render json: response, status: 200
   end
 
   def create
