@@ -33,6 +33,11 @@ RSpec.describe "Reservations", type: :request do
       reservation = json[0]
       expect(reservation['duration']).to eq @reservation.duration
     end
+
+    it 'Return the date_reserved' do
+      reservation = json[0]
+      expect(reservation['date_reserved']).to eq "2021-12-12"
+    end
   end
 
 end
