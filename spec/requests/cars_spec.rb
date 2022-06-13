@@ -82,7 +82,7 @@ RSpec.describe "Cars", type: :request do
     it "Get the not authorized message" do
       expect(json['message']).to eq "You do not have access to this resourse"
     end
-
+  
   end
 
   context "Authorized user" do
@@ -103,6 +103,10 @@ RSpec.describe "Cars", type: :request do
 
      it " Creat a new car test (not authorized)" do
       expect(json.size).to eq 9
+    end
+
+    it "Returns status code 200" do
+      expect(response).to have_http_status(:success)
     end
   end
   end
