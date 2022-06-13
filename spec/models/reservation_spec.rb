@@ -8,8 +8,13 @@ RSpec.describe Reservation, type: :model do
   end
   before { subject.save }
 
-  it 'City ame should not be nil' do
+  it 'City name should not be nil' do
     subject.city = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'Duration should not be nil' do
+    subject.duration = nil
     expect(subject).to_not be_valid
   end
 end
