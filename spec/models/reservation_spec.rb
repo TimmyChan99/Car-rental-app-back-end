@@ -17,4 +17,9 @@ RSpec.describe Reservation, type: :model do
     subject.duration = nil
     expect(subject).to_not be_valid
   end
+
+  it 'date_reserved should not be nil' do
+    subject.date_reserved = nil
+    expect(subject).to_not be_valid
+  end
 end
