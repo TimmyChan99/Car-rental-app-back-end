@@ -3,6 +3,7 @@
 # Car-rental-app-back-end
   This project (the back-end part) is using the [Car-rental-app](https://github.com/Mwapsam/Car-rental-app) repo as a front-end.
   This repository is an api that allow users to get list of cars, cars details, reserve a car and check their reservations list. If the user is the admin that give them the authorization to delete from or add a new car to the list of car. 
+  Users need to sign up or sign in to access the API endponits. They can sign up or sign in using the API endpoints.
   
 ## UML Diagram
 
