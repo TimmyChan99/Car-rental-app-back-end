@@ -33,30 +33,57 @@ RSpec.describe "Cars", type: :request do
   #   end
   # end
 
-  describe "GET /cars/:id" do
+  # describe "GET /cars/:id" do
+
+  #   before do
+  #     get '/api/v1/cars/1'
+  #   end
+
+  #   it "Get the car details: test the size" do
+  #     expect(json.size).to eq 9
+  #   end
+
+  #   it "Return the car name" do
+  #     expect(json['name']).to eq 'BMW'
+  #   end
+
+  #   it "Return the car description" do
+  #     expect(json['description']).to eq 'blue'
+  #   end
+
+  #   it "Return the car price" do
+  #     expect(json['price']).to eq "15.0"
+  #   end
+
+  #   it "Return the car reserved" do
+  #     expect(json['reserved']).to eq true
+  #   end
+  # end
+  describe "POST /cars" do
 
     before do
-      get '/api/v1/cars/1'
+      post '/api/v1/cars/', params: {
+        car: {
+          name: 'Renault', 
+          description: 'blue', 
+          price: 15, 
+          image: 'url',
+          user_id: 1
+        }},
+        headers: {
+          Authorization: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.Ge9PnbYXkEn78GM4luhDfg9Y8NTsIkDv-zHhjSRBSPc'
+        }
     end
 
     it "Get the car details: test the size" do
-      expect(json.size).to eq 9
+      p json
+      expect(json.size).to eq 1
     end
 
-    it "Return the car name" do
-      expect(json['name']).to eq 'BMW'
+    it "Get the car details: test the size" do
+      expect(json['message']).to eq "You do not have access to this resourse"
     end
 
-    it "Return the car description" do
-      expect(json['description']).to eq 'blue'
-    end
-
-    it "Return the car price" do
-      expect(json['price']).to eq "15.0"
-    end
-
-    it "Return the car reserved" do
-      expect(json['reserved']).to eq true
-    end
+  
   end
 end
