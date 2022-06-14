@@ -16,7 +16,7 @@ class Api::V1::CarsController < ApplicationController
     car = Car.new(car_params)
     car.user_id = @user.id
     if car.save
-      render json: JSON.pretty_generate(car.as_json)
+      render json: car
     elsif car.errors.messages
       render json: { errors: car.errors.messages }
     else
