@@ -1,5 +1,5 @@
 class Car < ApplicationRecord
-  has_one :reservation
+  has_many :reservations, dependent: :destroy
   belongs_to :user
 
   has_one_attached :pictures

@@ -23,9 +23,17 @@ class Api::V1::ReservationsController < ApplicationController
 
   def create
     reservation = Reservation.new(reservation_params)
+    response = {
+      id: reservation.id, 
+      city: reservation.city, 
+      user_id: reservation.user_id,
+      duration: reservation.duration,
+      date_reserved: reservation.date_reserved,
+      car: CarSerializer.new(Car.find(reservation.car_id))
+    }
 
     if reservation.save
-      render json: reservation
+      render json: response, status: 200
     else
       render json: { errors: 'Reservation not created' }, status: :unprocessable_entity
     end
