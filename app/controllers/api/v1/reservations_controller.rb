@@ -24,8 +24,8 @@ class Api::V1::ReservationsController < ApplicationController
   def create
     reservation = Reservation.new(reservation_params)
     response = {
-      id: reservation.id, 
-      city: reservation.city, 
+      id: reservation.id,
+      city: reservation.city,
       user_id: reservation.user_id,
       duration: reservation.duration,
       date_reserved: reservation.date_reserved,

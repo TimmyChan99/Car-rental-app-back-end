@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_09_145622) do
 
   create_table "cars", force: :cascade do |t|
     t.string "name"
-    t.boolean "reserved"
+    t.boolean "reserved", default: false
     t.text "description"
     t.decimal "price"
     t.datetime "created_at", null: false
