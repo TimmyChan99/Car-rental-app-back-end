@@ -35,7 +35,6 @@ Team members:
 - Fatima Ezzahra: [@TimmyChan99](https://github.com/TimmyChan99)
 - Mwape Samuel: [@TimmyChan99](https://github.com/TimmyChan99)
 - Yaseer Okino: [yaseerokino](https://github.com/yaseerokino)
-- Fikerte Tesfaye: [@Fikerte-T](https://github.com/Fikerte-T)
 - Lilian Francis: [@lilyfrancis](https://github.com/lilyfrancis)
 
 ## Getting Started
