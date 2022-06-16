@@ -62,9 +62,19 @@ describe 'Cars Endpoints' do
                                 run_test!
                             end
                 
-                            
-                         end	
-                    end
+                            response '200', 'Create a nw car for not authorized user' do
+                                let(:Authorization) { 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.Ge9PnbYXkEn78GM4luhDfg9Y8NTsIkDv-zHhjSRBSPc' }
+                                let(:car) { {
+                                    name: 'Renault',
+                            description: 'blue',
+                            price: 15,
+                            user_id: 2
+                                } }
+                                run_test! do |response|
+                                    expect(json['message']).to eq 'You do not have access to this resourse'
+                                end
+                            end
+                
                 
                     end
             
