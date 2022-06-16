@@ -34,7 +34,39 @@ describe 'Cars Endpoints' do
                             run_test!
             
                      end	
-                end
+                     path '/api/v1/cars' do
+                        post '/api/v1/cars' do
+                            tags 'cars'
+                            produces 'application/json'
+                            parameter name: :Authorization, in: :header, type: :string, required: true
+                            parameter name: :car, in: :body, schema: {
+                        type: :object,
+                        properties: {
+                          name: { type: :string },
+                          reserved: { type: :boolean },
+                          description: { type: :string },
+                                    price: { type: :decimal }
+                        },
+                        required: %w[name description price]
+                      }
+                
+                            response '200', 'Get cars' do
+                                @user = User.create!(id: 2, name: 'Rida', email: 'example@mail.com', password: 'password', role: 'admin')
+                                let(:Authorization) { 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.Ge9PnbYXkEn78GM4luhDfg9Y8NTsIkDv-zHhjSRBSPc' }
+                                let(:car) { {
+                                    name: 'Renault',
+                            description: 'blue',
+                            price: 15,
+                            user_id: 2
+                                } }
+                                run_test!
+                            end
+                
+                            
+                         end	
+                    end
+                
+                    end
             
 	end
   
