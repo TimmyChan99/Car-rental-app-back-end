@@ -12,7 +12,6 @@ describe 'Cars Endpoints' do
       end
       response '200', 'Get cars' do
         run_test! do |_response|
-          data = json
           expect(json.size).to eq 1
         end
       end
