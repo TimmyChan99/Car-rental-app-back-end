@@ -28,6 +28,10 @@ describe 'Cars Endpoints' do
                             let(:id) { '1' }
                             run_test!
                         end
+                        response '200', 'Get car detail' do
+                            Car.create(name: 'Jeep', description: 'blue', price: 15, reserved: true, user_id: 1, id: 1)
+                            let(:id) { '1' }
+                            run_test!
             
                      end	
                 end
