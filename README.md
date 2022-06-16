@@ -29,7 +29,7 @@
 
 [Link to Kanban board](https://github.com/TimmyChan99/Car-rental-app-back-end/projects/1)
 <br>
-[Link to the screenshot of the initial state of your Kanban board](https://github.com/TimmyChan99/Car-rental-app-back-end/issues/12)
+[Link to the screenshot of the initial state of the Kanban board](https://github.com/TimmyChan99/Car-rental-app-back-end/issues/12)
 
 Team members:
 - Fatima Ezzahra: [@TimmyChan99](https://github.com/TimmyChan99)
