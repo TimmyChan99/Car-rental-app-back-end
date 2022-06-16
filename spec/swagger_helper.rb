@@ -27,4 +27,9 @@ RSpec.configure do |config|
             defaultHost: {
               default: 'localhost:3000'
             }
-         
+          }
+        }
+      ]
+    }
+  }
+
