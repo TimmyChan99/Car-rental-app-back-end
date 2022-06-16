@@ -71,6 +71,8 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     bcrypt (3.1.18)
     bootsnap (1.12.0)
       msgpack (~> 1.2)
@@ -105,6 +107,8 @@ GEM
     io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
+    json-schema (2.8.1)
+      addressable (>= 2.4)
     jsonapi-renderer (0.2.2)
     jwt (2.3.0)
     loofah (2.18.0)
@@ -149,6 +153,7 @@ GEM
       syntax_tree-haml (>= 1.1.0)
       syntax_tree-rbs (>= 0.2.0)
     prettier_print (0.1.0)
+    public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -207,6 +212,19 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.11.0)
+    rswag (2.5.1)
+      rswag-api (= 2.5.1)
+      rswag-specs (= 2.5.1)
+      rswag-ui (= 2.5.1)
+    rswag-api (2.5.1)
+      railties (>= 3.1, < 7.1)
+    rswag-specs (2.5.1)
+      activesupport (>= 3.1, < 7.1)
+      json-schema (~> 2.2)
+      railties (>= 3.1, < 7.1)
+    rswag-ui (2.5.1)
+      actionpack (>= 3.1, < 7.1)
+      railties (>= 3.1, < 7.1)
     strscan (3.0.3)
     syntax_tree (2.7.1)
       prettier_print
@@ -253,6 +271,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 7.0.3)
   rspec-rails
+  rswag
   tzinfo-data
 
 BUNDLED WITH
