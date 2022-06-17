@@ -19,6 +19,24 @@
 - RSpec
 - JWT
 
+## Live Demo
+
+[Live version](https://car-renta.herokuapp.com/)
+<br>
+[API live version](https://car-rental-app-api.herokuapp.com/api/v1/cars)
+
+## Kanban board
+
+[Link to Kanban board](https://github.com/TimmyChan99/Car-rental-app-back-end/projects/1)
+<br>
+[Link to the screenshot of the initial state of the Kanban board](https://github.com/TimmyChan99/Car-rental-app-back-end/issues/12)
+
+4 Team members:
+- Fatima Ezzahra: [@TimmyChan99](https://github.com/TimmyChan99)
+- Mwape Samuel: [@TimmyChan99](https://github.com/TimmyChan99)
+- Yaseer Okino: [yaseerokino](https://github.com/yaseerokino)
+- Lilian Francis: [@lilyfrancis](https://github.com/lilyfrancis)
+
 ## Getting Started
 
 ### **Setup**
