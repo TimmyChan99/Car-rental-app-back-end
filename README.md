@@ -5,6 +5,12 @@
   This repository is an api that allow users to get list of cars, cars details, reserve a car and check their reservations list. If the user is the admin that give them the authorization to delete from or add a new car to the list of car. 
   Users need to sign up or sign in to access the API endponits. They can sign up or sign in using the API endpoints.
   
+## Demo 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/92228303/182453423-261e7186-f92e-4498-8999-d5b448edc44a.gif" alt="demo" />
+</p>
+
 ## UML Diagram
 
 <p align="center">
